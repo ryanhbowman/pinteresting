@@ -1,16 +1,19 @@
-%nav.navbar.navbar-inverse{role: "navigation"}
-  / Brand and toggle get grouped for better mobile display
-  .navbar-header
-    %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
-      %span.sr-only Toggle navigation
-      %span.icon-bar
-      %span.icon-bar
-      %span.icon-bar
-    %a.navbar-brand{href: "#"} Pinteresting
-  / Collect the nav links, forms, and other content for toggling
-  #bs-example-navbar-collapse-1.collapse.navbar-collapse
-    %ul.nav.navbar-nav.navbar-right
-      %li
-        = link_to 'Home' , root_path
-      %li
-        = link_to 'About' , about_path
+%nav.navbar.navbar-static-top.navbar-default{role: "navigation"}
+  .container
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to 'Pinteresting' , root_path, class:'navbar-brand'
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li{:class => "#{'active' if current_page?(root_path)}"}
+          = link_to 'Home' , root_path
+        %li{:class => "#{'active' if current_page?(about_path)}"}
+          = link_to 'About' , about_path
+        %li{:class => "#{'active' if current_page?(why_path)}"}
+          = link_to 'Why?' , why_path
