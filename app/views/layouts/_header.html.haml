@@ -15,8 +15,6 @@
           = link_to 'Home' , root_path
         %li{:class => "#{'active' if current_page?(about_path)}"}
           = link_to 'About' , about_path
-        %li{:class => "#{'active' if current_page?(why_path)}"}
-          = link_to 'Why?' , why_path
         - if user_signed_in?
           %li
             = link_to 'Account Setting', edit_user_registration_path
@@ -24,4 +22,4 @@
             = link_to 'Log out' , destroy_user_session_path, method: :delete
         - else
           %li
-            = link_to 'Log in', new_user_session_path, class: ''
+            = link_to 'Log in', new_user_session_path
