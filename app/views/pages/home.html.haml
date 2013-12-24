@@ -1,5 +1,9 @@
 .jumbotron.center
   %h1 Welcome!
-  %p
-    = link_to 'Log in', about_path, class: 'btn btn-default btn-lg left'
-    = link_to 'Sign Up', about_path, class: 'btn btn-primary btn-lg left'
+  - if user_signed_in?
+    %p
+      You in sucker
+  - else
+    %p
+      = link_to 'Log in', new_user_session_path, class: 'btn btn-default btn-lg left'
+      = link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary btn-lg left'
