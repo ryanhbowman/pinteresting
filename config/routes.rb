@@ -7,7 +7,7 @@ Pinteresting::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'pages#home'
+  root 'pins#index'
   get 'about' => 'pages#about' # creates about_path variable
   get 'why' => 'pages#why' # creates why_path variable
 

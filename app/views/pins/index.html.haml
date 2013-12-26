@@ -1,12 +1,14 @@
+= render 'pages/home' unless user_signed_in?
 #pins.transitions-enabled
   - @pins.each do |pin|
     .box.panel.panel-default
-      = image_tag pin.image.url(:medium)
+      = link_to (image_tag pin.image.url(:medium)), pin
       .panel-body
         = pin.description
-        = pin.user.email if pin.user
-        = link_to 'Show', pin, class: 'btn btn-sm btn-primary'
-      .panel-footer
-        - if pin.user == current_user
-          = link_to 'Edit', edit_pin_path(pin), class: 'btn btn-sm btn-primary'
-          = link_to 'Delete', pin, class: 'btn btn-sm btn-primary', method: :delete, data: { confirm: 'Are you sure?' }
+        .clearfix
+          = pin.user.email if pin.user
+      
+      - if pin.user == current_user
+        .panel-footer
+          = link_to raw('<span class="glyphicon glyphicon-edit"></span>'), edit_pin_path(pin)
+          = link_to raw('<span class="glyphicon glyphicon-trash"></span>'), pin, method: :delete, data: { confirm: 'Are you sure?' }
