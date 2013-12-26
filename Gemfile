@@ -27,6 +27,7 @@ gem 'haml', '~> 4.0.4'
 
 gem 'devise', '~> 3.1.1'
 gem 'paperclip', '~> 3.0'
+gem 'aws-sdk', '~> 1.20.0'
 
 group :development, :test do
   gem 'sqlite3'
