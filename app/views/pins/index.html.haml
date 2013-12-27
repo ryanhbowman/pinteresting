@@ -6,7 +6,7 @@
       .panel-body
         = pin.description
         .clearfix
-          = pin.user.email if pin.user
+          = pin.user.name if pin.user
       
       - if pin.user == current_user
         .panel-footer
